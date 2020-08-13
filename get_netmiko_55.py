@@ -3,7 +3,6 @@ import yaml
 from netmiko import ConnectHandler
 
 HOST = '10.48.42.59'
-PORT_NC = 830
 PORT_SSH = 22
 USER = 'iox'
 PASS = 'l4b'
@@ -33,6 +32,6 @@ print(interface_list)
 platform_output = conn.send_command("show platform")
 platform_data = platform_output.split("\n")
 for line_card in platform_data:
-    if "Slice" in line_card:
+    if "Slice" in line_card or "IOS XR RUN" in line_card:
         platform_list.append(line_card.split())
 print(platform_list)
