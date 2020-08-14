@@ -1,5 +1,5 @@
-from netmiko import ConnectHandler
 import yaml
+from netmiko import ConnectHandler
 import get_55
 import get_9k
 
