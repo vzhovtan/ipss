@@ -15,6 +15,7 @@ slice_list = []
 card_list = []
 slice_struct_data = []
 final_interface_list = []
+platform_type = ""
 
 interface_pattern = re.compile("Gi\d{1,2}\/.*|TE.*|Hu.*|Fo.*")
 subint_pattern = re.compile(".*ARPA.*")
@@ -34,6 +35,16 @@ print("\n")
 conn = ConnectHandler(device_type=PLATFORM, ip=HOST, port=PORT_SSH, username=USER, password=PASS)
 prompt = conn.find_prompt()
 
+version_output = conn.send_command("show version")
+version_data = version_output.split("\n")
+for line in version_data:
+    if "ASR9" in line:
+        platform_type = "ASR9000"
+
+print(" Platform kind is \n")
+print(platform_type)
+print("\n")
+        
 platform_output = conn.send_command("show platform")
 platform_data = platform_output.split("\n")
 for line_card in platform_data:
@@ -41,7 +52,7 @@ for line_card in platform_data:
      if lc_type:
           if lc_type.group(2) in valid_line_card:
                platform_list.append(line_card.strip().split())
-print(" List of line cards \n")
+print(" List of valid line cards installed in the chassis \n")
 print(platform_list)
 print("\n")
 
@@ -82,5 +93,3 @@ for item in slice_list:
         slice_struct_data.append(item)
 print("\n Slice list \n")        
 print(slice_struct_data)
-
-
