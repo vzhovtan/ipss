@@ -3,11 +3,11 @@ from netmiko import ConnectHandler
 import get_55
 import get_9k
 
-#HOST = '10.48.32.89'
-HOST = '10.48.42.59'
+
+HOST = 'ipv4'
 PORT_SSH = 22
-USER = 'iox'
-PASS = 'l4b'
+USER = 'user_name'
+PASS = 'pswd'
 PLATFORM = 'cisco_xr'
 static_file_name = "seed.yml"
 

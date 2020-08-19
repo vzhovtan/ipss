@@ -29,7 +29,7 @@ def interface_list_creation_9k(connection, platform_list):
 
 def platform_list_creation_9k(connection, valid_line_card):
     #taking 'show platform' output from asr9k and selecting valid line cards only
-    lc_type_pattern = re.compile("(\d\/\d{1,2}\/CPU.?\s+)(A9.+?-[^ \t\r\n\f].*?)(\s|-)")
+    lc_type_pattern = re.compile("(A9.+?-[^ \t\r\n\f].*GE)|(A9.+?-MOD.*-)")
     platform_list = []
 
     platform_output = connection.send_command("show platform")
@@ -37,7 +37,7 @@ def platform_list_creation_9k(connection, valid_line_card):
     for line_card in platform_data:
         lc_type = lc_type_pattern.search(line_card)
         if lc_type:
-            if lc_type.group(2) in valid_line_card:
+            if lc_type.group() in valid_line_card:
                platform_list.append(line_card.strip().split())
 
     return platform_list
@@ -51,7 +51,7 @@ def slice_list_creation_9k(connection):
     slice_output = connection.send_command("show platform slices")
     slice_data = slice_output.split("\n")
     for slice in slice_data:
-        if "Power" in slice and "On" in slice:
+        if "Power" in slice and "on" in slice:
             slice_list.append(slice.strip().split())
             
     for item in slice_list:

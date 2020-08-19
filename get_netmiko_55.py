@@ -2,10 +2,10 @@ import re
 import yaml
 from netmiko import ConnectHandler
 
-HOST = '10.48.42.59'
+HOST = 'ipv4'
 PORT_SSH = 22
-USER = 'iox'
-PASS = 'l4b'
+USER = 'user'
+PASS = 'pswd'
 PLATFORM = 'cisco_xr'
 
 interface_list = []

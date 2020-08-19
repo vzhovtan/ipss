@@ -2,10 +2,10 @@ import re
 import yaml
 from netmiko import ConnectHandler
 
-HOST = '10.48.32.89'
+HOST = 'ipv4'
 PORT_SSH = 22
-USER = 'iox'
-PASS = 'l4b'
+USER = 'user'
+PASS = 'pswd'
 PLATFORM = 'cisco_xr'
 
 valid_line_card = []
@@ -19,11 +19,12 @@ platform_type = ""
 
 interface_pattern = re.compile("Gi\d{1,2}\/.*|TE.*|Hu.*|Fo.*")
 subint_pattern = re.compile(".*ARPA.*")
-lc_type_pattern = re.compile("(\d\/\d{1,2}\/CPU.?\s+)(A9.+?-[^ \t\r\n\f].*?)(\s|-)")
+#lc_type_pattern = re.compile("(\d\/\d{1,2}\/CPU.?\s+)(A9.+?-[^ \t\r\n\f].*?)(\s|-)")
+lc_type_pattern = re.compile("(A9.+?-[^ \t\r\n\f].*GE)|(A9.+?-MOD.*-)")
 lc_int_number_pattern = re.compile("(\d\/\d).*")
 
 #grabbing static data and creating list of valid line cards
-with open("seed.yml", 'r') as file:
+with open("seed_9k.yml", 'r') as file:
     seed_data = yaml.load(file, Loader=yaml.FullLoader)
 
 for key in seed_data:
@@ -48,10 +49,10 @@ print("\n")
 platform_output = conn.send_command("show platform")
 platform_data = platform_output.split("\n")
 for line_card in platform_data:
-     lc_type = lc_type_pattern.search(line_card)
-     if lc_type:
-          if lc_type.group(2) in valid_line_card:
-               platform_list.append(line_card.strip().split())
+    lc_type = lc_type_pattern.search(line_card)
+    if lc_type:
+        if lc_type.group() in valid_line_card:
+            platform_list.append(line_card.strip().split())
 print(" List of valid line cards installed in the chassis \n")
 print(platform_list)
 print("\n")
@@ -81,7 +82,7 @@ print(final_interface_list)
 slice_output = conn.send_command("show platform slices")
 slice_data = slice_output.split("\n")
 for slice in slice_data:
-    if "Power" in slice and "On" in slice:
+    if "Power" in slice and "on" in slice:
         slice_list.append(slice.strip().split())
 for item in slice_list:
     if "CPU" in item[0] and item[0] not in card_list:

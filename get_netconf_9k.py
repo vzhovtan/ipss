@@ -36,10 +36,10 @@ platform_filter = """
 """
 
 with manager.connect(
-    host='10.48.32.89',
+    host='ipv4',
     port=830,
-    username='iox',
-    password='l4b',
+    username='user',
+    password='pswd',
     hostkey_verify=False,
     device_params={'name':'iosxr'}
 ) as m:
