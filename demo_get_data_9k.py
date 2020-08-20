@@ -6,7 +6,7 @@ import demo_get_9k
 HOST = 'ipv4'
 PORT_SSH = 22
 USER = 'user'
-PASS = 'pswd**'
+PASS = 'pswd'
 PLATFORM = 'cisco_xr'
 static_file_name = "demo_seed_9k.yml"
 
@@ -35,4 +35,4 @@ selected_platform_data["line_cards"] = line_cards_9k
 selected_platform_data["interfaces"] = interfaces_9k
 all_platform_data[HOST] = selected_platform_data
 with open("outcome.json", "w") as file:
-    file.write(json.dumps(selected_platform_data))
+    file.write(json.dumps(all_platform_data))
