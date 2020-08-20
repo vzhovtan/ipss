@@ -2,7 +2,7 @@ import re
 
 def interface_list_creation_9k(connection, platform_list):
     #taking 'show interface brief' and selecting interfaces in admin-down and down state on valid line cards only
-    interface_pattern = re.compile("Gi\d{1,2}\/.*|TE.*|Hu.*|Fo.*")
+    interface_pattern = re.compile("Gi\d{1,2}\/.*|Te.*|Hu.*|Fo.*")
     subint_pattern = re.compile(".*ARPA.*")
     lc_int_number_pattern = re.compile("(\d\/\d).*")
     initial_interface_list = []

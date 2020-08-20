@@ -48,9 +48,10 @@ def get_platform_data():
     selected_host = input_data['host']
     user = input_data['username']
     pswd = input_data['pswd']
-    selected_platform_data = {}
     line_card_9k = []
     interfaces_9k = []
+    selected_platform_data = {}
+    all_platform_data = {}
 
     conn = ConnectHandler(device_type="cisco_xr", ip=selected_host, port=22, username=user, password=pswd)
     prompt = conn.find_prompt()
@@ -58,8 +59,9 @@ def get_platform_data():
     interfaces_9k = demo_get_9k.interface_list_creation_9k(conn, line_cards_9k)
     selected_platform_data["line_cards"] = line_cards_9k
     selected_platform_data["interfaces"] = interfaces_9k
+    all_platform_data[selected_host] = selected_platform_data
 
-    return json.dumps(selected_platform_data)
+    return json.dumps(all_platform_data)
 
 if __name__ == '__main__':
     run(host='localhost', port=9600)
