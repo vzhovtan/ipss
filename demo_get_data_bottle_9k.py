@@ -2,10 +2,9 @@ import yaml
 import json
 from bottle import *
 from netmiko import ConnectHandler
-#import get_55
-import get_9k
+import demo_get_9k
 
-static_file_name = "seed_9k.yml"
+static_file_name = "demo_seed_9k.yml"
 
 def static_data_processing(file_name):
     #taking the data from external YML file and creating list of valid line cards for all platforms
@@ -52,16 +51,13 @@ def get_platform_data():
     selected_platform_data = {}
     line_card_9k = []
     interfaces_9k = []
-    slices_9k = []
 
     conn = ConnectHandler(device_type="cisco_xr", ip=selected_host, port=22, username=user, password=pswd)
     prompt = conn.find_prompt()
-    line_card_9k = get_9k.platform_list_creation_9k(conn, valid_card_list)
-    interfaces_9k = get_9k.interface_list_creation_9k(conn, line_card_9k)
-    slices_9k = get_9k.slice_list_creation_9k(conn)
-    selected_platform_data["line_cards"] = line_card_9k
+    line_cards_9k = demo_get_9k.platform_list_creation_9k(conn, valid_card_list)
+    interfaces_9k = demo_get_9k.interface_list_creation_9k(conn, line_cards_9k)
+    selected_platform_data["line_cards"] = line_cards_9k
     selected_platform_data["interfaces"] = interfaces_9k
-    selected_platform_data["slices"] = interfaces_9k
 
     return json.dumps(selected_platform_data)
 
