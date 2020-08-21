@@ -25,7 +25,7 @@ def get_vaild_card(file_name):
                 valid_line_card.append(key)
     
     return valid_line_card
-
+    
 def get_lc_pattern(file_name):
     #taking the regular expression from external YML file
     reg_pattern = ""

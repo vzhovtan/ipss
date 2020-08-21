@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"></head>
+<body>
+<style>
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,600);
+
+body {
+  font: 16px/1.4em "Montserrat", Arial, sans-serif;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.chart-text {
+  fill: #000;
+  -moz-transform: translateY(0.25em);
+  -ms-transform: translateY(0.25em);
+  -webkit-transform: translateY(0.25em);
+  transform: translateY(0.25em);
+}
+
+.segment-number {
+  font-size: 0.16em;
+  line-height: 1;
+  text-anchor: middle;
+  -moz-transform: translateY(-0.25em);
+  -ms-transform: translateY(-0.25em);
+  -webkit-transform: translateY(-0.25em);
+  transform: translateY(-0.25em);
+}
+
+.chart-number {
+  font-size: 0.28em;
+  line-height: 1;
+  text-anchor: middle;
+  -moz-transform: translateY(-0.25em);
+  -ms-transform: translateY(-0.25em);
+  -webkit-transform: translateY(-0.25em);
+  transform: translateY(-0.25em);
+}
+
+.chart-title {
+  font-size: 0.25em;
+  text-anchor: middle;
+  -moz-transform: translateY(0.8em);
+  -ms-transform: translateY(0.8em);
+  -webkit-transform: translateY(0.8em);
+  transform: translateY(0.8em);
+}
+
+.chart-label {
+  font-size: 0.2em;
+  text-anchor: middle;
+  -moz-transform: translateY(0.7em);
+  -ms-transform: translateY(0.7em);
+  -webkit-transform: translateY(0.7em);
+  transform: translateY(0.7em);
+}
+
+@media (min-width: 768px) {
+  figure {
+    flex-direction: row;
+  }
+}
+
+.shape-circle {
+  display: inline-block;
+  vertical-align: middle;
+  width: 32px;
+  height: 32px;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+}
+
+.donut {
+  margin: 0 4%;
+  width: 25%;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th {
+    background-color: #1E90FF;
+    color: white;
+    text-align: left;
+}
+
+td,th {
+    padding:10px;
+    font-size: 1em;
+}
+
+td {
+    font-weight: bold;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: #ee8;
+  color: black;
+  text-align: center;
+  padding: 5px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
+
+<div style="margin: auto; position: relative; paddingtop: 60px; left: 0; right: 0;">
+    <svg height="100%" viewBox="0 0 42 52" class="donut" role="img">
+      <text x="50%" class="chart-title">Pwr Save per Year</text>
+      <circle class="donut-hole" cx="21" cy="26" r="15.91549430918954" fill="#fff" role="presentation"></circle>
+      <circle class="donut-segment" cx="21" cy="26" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="4" 
+        stroke-dasharray="78 22" stroke-dashoffset="64">
+      </circle>
+      <circle class="donut-segment" cx="21" cy="26" r="15.91549430918954" fill="transparent" stroke="#FFB733" stroke-width="4" 
+        stroke-dasharray="68.0 32.0" stroke-dashoffset="64">
+      </circle>
+      <circle class="donut-segment" cx="21" cy="26" r="15.91549430918954" fill="transparent" stroke="#FFE500" stroke-width="4"
+        stroke-dasharray="0.0 100.0" stroke-dashoffset="64">
+      </circle>
+    <g transform="translate(20,35.5) scale(0.04, 0.03)">
+        <path d="M 32.891177,3.8737676 H 56.186565 L 28.360105,71.667419 45.639376,71.493937 3.6606166,159.47699 24.894394,81.658276 13.407906,81.86749 Z"
+        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <g class="chart-text">
+        <text x="50%" y="50%" class="chart-number">0.0 - 11.7</text>
+        <text x="50%" y="50%" class="chart-label" id="kwh_label">MWh</text>
+      </g>
+    </svg>
+
+    <svg height="100%" viewBox="0 0 42 52" class="donut" role="img">
+      <text x="50%" class="chart-title">$$ per Year</text>
+      <circle class="donut-hole" cx="21" cy="26" r="15.91549430918954" fill="#fff" role="presentation"></circle>
+      <circle class="donut-segment" cx="21" cy="26" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="4" 
+       stroke-dasharray="78 22" stroke-dashoffset="64">
+      </circle>
+      <circle class="donut-segment" cx="21" cy="26" r="15.91549430918954" fill="transparent" stroke="#79C11E" stroke-width="4" 
+       stroke-dasharray="56.0 44.0" stroke-dashoffset="64">
+      </circle>
+      <circle class="donut-segment" cx="21" cy="26" r="15.91549430918954" fill="transparent" stroke="#8FFF00" stroke-width="4" 
+       stroke-dasharray="0.0 100.0" stroke-dashoffset="64">
+      </circle>
+      <g><g transform="translate(18.6,38.0) scale(0.0005,-0.0005)"><path d="M5363,4874.8c-419.6-52.7-893.9-308.4-1167.1-628.4c-314.2-368.9-464.5-765.1-466.5-1223.8c-1.9-825.6,585.5-1573.1,1411.1-1799.5c138.6-37.1,208.8-44.9,456.7-42.9c261.5,0,312.3,5.9,466.5,54.6c329.8,99.6,583.6,251.8,821.7,489.9c392.3,392.3,579.7,866.6,550.4,1401.4c-25.4,470.4-222.5,890-577.7,1229.6c-187.4,177.6-288.9,247.9-517.2,357.2C6042.2,4853.4,5673.3,4915.8,5363,4874.8z M5925.1,4435.7c177.6-39,460.6-175.7,593.3-284.9c216.6-181.5,386.4-448.9,466.5-737.8c42.9-156.1,48.8-605,9.8-741.7c-126.9-443.1-370.8-749.5-733.8-929c-253.7-124.9-380.6-152.2-683.1-152.2c-296.7,0-425.5,29.3-673.3,150.3c-134.7,64.4-201,115.2-343.5,257.6c-146.4,144.4-193.2,204.9-259.6,341.6c-126.9,261.5-163.9,445-154.2,751.4c7.8,208.8,19.5,281,62.5,409.9c162,480.1,548.4,829.5,1036.4,936.8C5411.8,4474.7,5755.3,4472.8,5925.1,4435.7z"/><path d="M5429.3,4098.1c-33.2-35.1-56.6-78.1-56.6-109.3c0-37.1-15.6-58.5-62.5-83.9c-109.3-58.6-253.7-204.9-300.6-306.4c-115.2-245.9-5.9-507.5,271.3-646c56.6-29.3,175.7-78.1,265.4-107.3c197.1-66.3,216.7-82,216.7-165.9c0-83.9-58.6-124.9-181.5-124.9c-107.3,0-195.2,33.2-314.2,119c-134.7,95.6-271.3,78.1-333.7-41c-37.1-72.2-37.1-123,0-197.1c35.1-64.4,193.2-173.7,335.7-230.3c80-31.2,95.6-46.8,107.3-101.5c37.1-183.5,296.7-212.7,384.5-42.9c11.7,23.4,21.5,58.6,21.5,78.1c0,21.5,33.2,52.7,87.8,82c267.4,142.5,388.4,466.5,257.6,689c-89.8,154.2-228.4,247.9-511.4,347.4c-195.2,68.3-244,101.5-244,167.8c0,78.1,72.2,124.9,189.3,124.9c93.7,0,109.3-7.8,203-89.8c93.7-82,109.3-89.8,179.6-80c140.5,19.5,222.5,158.1,169.8,286.9c-29.3,72.2-132.7,165.9-245.9,220.5c-56.6,27.3-85.9,54.6-85.9,78.1c0,103.4-93.7,187.4-210.8,189.3C5503.5,4154.7,5476.2,4142.9,5429.3,4098.1z"/><path d="M1857.7,2011.6c-142.5-74.2-216.6-181.5-228.3-331.8c-7.8-113.2-7.8-117.1,220.5-548.5c124.9-240.1,224.4-437.2,220.5-439.1c-3.9-1.9-58.6-23.4-123-48.8C1498.5,465.9,1088.7,91.1,868.1-344.1c-56.6-111.3-64.4-119.1-183.5-164c-273.2-101.5-443-195.2-503.5-279.1c-95.6-132.7-99.5-171.7-48.8-585.5c60.5-482.1,82-589.4,136.6-698.7c85.9-169.8,173.7-218.6,581.6-331.8c288.9-78.1,290.8-80,429.4-201c402.1-349.4,823.6-530.9,1297.9-554.3c171.8-9.8,218.6-17.6,218.6-39c0-15.6-31.2-214.7-68.3-441.1c-60.5-355.2-66.4-423.5-48.8-509.4c29.3-132.7,95.6-242,214.7-349.3c158.1-142.5,257.6-169.8,616.8-169.8c665.6,0,852.9,136.6,895.9,653.8c7.8,85.9,17.6,162,21.5,169.8c3.9,5.8,48.8,0,99.5-15.6c402.1-121,1112.5-132.7,1635.6-23.4c107.3,21.5,208.8,41,224.5,42.9c21.5,1.9,33.2-41,52.7-177.6c15.6-111.3,42.9-216.6,72.2-275.2c60.5-119.1,187.4-247.9,314.2-312.3c87.8-46.8,123-52.7,355.2-58.5c285-7.8,390.4,11.7,597.2,117.1c154.2,76.1,329.9,251.8,374.7,370.8c33.2,91.7,33.2,103.4-56.6,936.8l-91.7,845.1l56.6,126.9c82,179.6,156.1,423.5,191.3,632.4c25.4,138.6,29.3,247.9,19.5,499.7c-5.8,177.6-17.5,349.3-21.5,380.6c-11.7,54.6-3.9,64.4,150.3,160c89.8,54.6,226.4,154.2,302.5,218.6c138.6,115.2,144.4,119.1,255.7,119.1c226.4,0,489.9,103.4,700.7,273.2c226.4,183.5,296.7,359.1,191.3,484c-107.3,126.9-244,97.6-361.1-74.2c-72.2-107.3-173.7-203-267.4-251.8c-64.4-33.2-68.3-27.3-27.3,54.6c21.5,41,48.8,132.7,62.4,203c19.5,109.3,19.5,148.3-9.8,261.5c-80,322-374.7,608.9-667.5,642.1c-203,25.4-427.4-138.6-476.2-347.4c-64.4-269.3,68.3-751.4,265.4-972c39-42.9,64.4-85.9,58.6-95.6c-13.6-19.5-273.2-197.1-290.8-197.1c-5.8,0-33.2,58.6-62.5,132.7c-183.5,462.6-605,995.4-991.5,1253c-126.9,85.9-162,91.7-257.6,48.8c-70.3-35.1-107.3-99.6-107.3-187.4c0-85.9,23.4-119.1,150.3-212.7c163.9-123,443-400.1,552.3-546.5c298.6-404,447-880.2,448.9-1426.7c0-339.6-62.5-612.8-220.5-968.1l-68.3-152.2l85.9-780.7c113.2-1024.7,111.2-958.3,27.3-1028.6c-99.5-82-228.4-113.2-472.3-113.2c-337.6,0-337.6,0-396.2,458.7c-41,312.3-56.6,368.9-123,421.6c-66.4,52.7-181.5,42.9-345.5-27.3c-199.1-85.9-470.4-130.8-849-144.4c-491.8-15.6-776.8,27.3-1079.3,163.9c-119.1,52.7-167.9,64.4-218.6,56.6c-74.2-15.6-165.9-109.3-167.9-173.7c0-23.4-15.6-175.7-35.1-339.6c-25.4-224.5-41-306.4-68.3-335.7c-54.7-60.5-208.8-83.9-493.8-76.1c-240.1,5.8-259.6,9.8-306.4,52.7c-70.3,66.3-66.4,122.9,39,753.4c99.5,583.6,97.6,595.3-13.7,677.3c-46.8,35.1-68.3,37.1-271.3,21.5c-390.4-29.3-671.4,21.5-956.4,173.7c-163.9,87.8-380.6,255.7-458.7,357.2c-27.3,37.1-66.4,76.1-85.9,85.9c-29.3,17.6-347.4,107.4-679.2,195.2c-78.1,21.5-82,25.4-101.5,124.9c-39,191.3-101.5,780.7-85.9,794.4c7.8,7.8,72.2,33.2,142.5,58.6c68.3,23.4,199.1,74.2,288.9,113.2l164,68.3l85.9,185.4c228.3,489.9,599.2,800.2,1100.8,919.3c216.7,52.7,271.3,97.6,273.2,222.5c0,56.6-58.6,185.4-265.4,581.6c-146.4,279.1-261.5,513.3-255.7,519.2c17.6,15.6,226.4-50.8,345.5-111.3c257.6-130.8,599.2-398.2,761.2-597.2c54.6-66.3,124.9-181.5,158.1-253.7c72.2-162,117.1-201,226.4-203c70.3,0,95.6,13.7,195.2,99.5c62.5,56.6,193.2,152.2,288.9,212.7c255.7,163.9,302.5,212.7,302.5,312.3c0,64.4-11.7,93.7-56.6,138.6c-54.7,52.7-97.6,66.4-187.4,56.6c-42.9-3.9-249.8-121-374.7-212.7c-46.8-33.2-89.8-60.5-99.5-60.5c-7.8,0-31.2,29.3-52.7,64.4c-62.5,105.4-439.1,464.5-624.6,595.3c-206.9,146.4-519.2,304.5-683.1,345.5C2084.1,2081.9,1978.7,2074.1,1857.7,2011.6z M8688.8,877.7c83.9-60.5,165.9-228.4,165.9-343.5c0-97.6-72.2-285-115.2-296.7c-35.1-9.8-148.3,181.5-197.1,333.7c-46.9,148.3-58.6,269.4-35.1,333.8C8522.9,946,8610.7,932.3,8688.8,877.7z"/></g></g>
+      <g class="chart-text">
+        <text x="50%" y="50%" class="chart-number">0.0 - 1.2</text>
+        <text x="50%" y="50%" class="chart-label">k$</text>
+      </g>
+    </svg>
+
+    <svg height="100%" viewBox="0 0 42 52" class="donut" role="img">
+      <text x="50%" class="chart-title"><tspan>CO</tspan><tspan style="font-size: .8em;" dy=".2em">2</tspan><tspan style="font-size: 1em;" dy="-.16em"> per Year</tspan></text>    
+      <circle class="donut-hole" cx="21" cy="26" r="15.91549430918954" fill="#fff" role="presentation"></circle>
+      <circle class="donut-segment" cx="21" cy="26" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="4" 
+       stroke-dasharray="78 22" stroke-dashoffset="64">
+      </circle>
+      <circle class="donut-segment" cx="21" cy="26" r="15.91549430918954" fill="transparent" stroke="#20CEDF" stroke-width="4" 
+       stroke-dasharray="59.0 41.0" stroke-dashoffset="64">
+      </circle>
+      <circle class="donut-segment" cx="21" cy="26" r="15.91549430918954" fill="transparent" stroke="#00E8FF" stroke-width="4" 
+       stroke-dasharray="0.0 100.0" stroke-dashoffset="64">
+      </circle>
+      <g><g transform="translate(18.6,35.5), scale(0.03, 0.03)">
+      <path
+         id="path864"
+         style="fill:#404040;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 15.703302,67.033892 C 9.7666254,55.031475 6.486197,40.253474 7.1897991,31.378463 v 0 C 8.0324811,20.749278 16.505393,10.628566 31.349122,7.1761435 48.732235,2.3842385 65.13224,8.1225697 67.317646,13.498808 69.177581,8.0930498 81.542593,4.1197734 89.791907,5.3561313 98.369948,6.6417568 105.3775,11.583456 107.23638,17.63431 c 5.66209,-5.746642 14.27784,-6.93137 24.38802,-3.606307 9.79229,3.220515 21.64301,10.190862 20.81348,22.688553 -0.76843,11.577338 -15.42346,17.630506 -23.47322,18.898825 -8.04977,1.268326 -19.15209,-0.4737 -22.35544,-4.302112 -3.57947,6.584815 -15.314011,10.368227 -25.295753,10.659387 -9.981739,0.29116 -16.727712,-1.720857 -24.947659,-6.034895 -1.74579,2.307701 -7.363263,5.375561 -16.408791,3.564544 -9.045537,-1.811014 -14.061333,-5.437537 -16.956862,-9.531473 -2.256438,4.522427 -2.700715,9.245471 -3.71779,16.961497 z M 105.32392,49.126095 C 99.295295,57.411123 90.038062,59.365716 80.888744,59.601331 71.280859,59.848749 62.397229,57.362732 55.98049,52.532441 53.053961,56.239934 48.71177,58.607123 40.005027,57.06815 32.923427,55.81643 26.693018,52.061791 24.45464,47.372447 l -3.007499,-0.07646 v 0 C 19.036415,51.611312 17.61365,57.420324 17.401167,65.059137 13.11347,54.503282 9.0813202,40.426152 9.8924364,31.393643 v 0 C 10.703553,22.361135 17.613,12.383118 31.90078,9.4493063 47.38184,5.6816793 62.026938,10.364186 66.49435,15.465717 l 1.589509,-0.04334 C 71.771371,9.9368208 82.551046,6.7206618 89.899222,7.8834692 96.772353,8.9711037 104.35456,13.567539 105.58986,19.865488 l 2.2535,0.285796 v 0 c 4.52542,-4.665877 10.8371,-6.350729 19.08165,-4.611741 9.6434,2.034041 24.49561,9.740979 22.52619,21.323222 -1.94325,11.428263 -16.72632,15.741379 -23.97615,16.486523 -6.56469,0.674728 -14.3684,-0.808469 -18.19046,-4.355715 z" />
+      <path
+         style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:8;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="M 12.440584,77.087807 9.9270425,136.07909 H 6.0084186 v 26.08265 H 8.8159991 26.307955 80.060227 V 136.07909 H 25.196911 L 22.68337,77.087807 Z"
+         id="rect889" />
+      </g>
+      </g>
+      <g class="chart-text">
+        <text x="50%" y="50%" class="chart-number">0.0 - 3.3</text>
+        <text x="50%" y="50%" class="chart-label">tons</text>
+      </g>
+    </svg>
+</div>
+<table style="position: relative; border:1px black solid; width:65%; margin-left:2.5%">
+<tr><th colspan="2" style="text-align:center;">Number of slices to shut</th><th colspan="2">PowerSave kW</th></tr>
+<tr><th>Admin down</th><th style="background-color:#176DC2">Oper down</th>
+<th title="'Guaranteed' saving" style="background-color:#FFE500;color:black">Admin down</th>
+<th title="Potential saving" style="background-color:#FFB733;color:black">Oper down</th>
+</tr>
+
+<tr><td>0</td><td>4</td><td>0.00</td><td>0.80</td></tr>  
+</table>
+</body>
