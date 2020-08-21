@@ -1,5 +1,25 @@
 import re
 
+def platform_list_creation_9k(connection, valid_line_card, reg_pattern):
+    #taking 'show platform' output from asr9k and selecting valid line cards only
+    lc_type_pattern = re.compile(reg_pattern)
+    platform_list = []
+
+    platform_output = connection.send_command("show platform")
+    platform_data = platform_output.split("\n")
+    for line_card in platform_data:
+        if "NSHUT" in line_card:
+            lc_type = lc_type_pattern.search(line_card)
+            if lc_type:
+                if lc_type.group() in valid_line_card:
+                    lc_entry = line_card.strip().split()
+                    if lc_entry:
+                        platform_list_entry = [lc_entry[0], lc_entry[1]]
+                        platform_list_entry.append(lc_type.group())
+                        platform_list.append(platform_list_entry)
+
+    return platform_list
+
 def interface_list_creation_9k(connection, platform_list):
     #taking 'show interface brief' and selecting interfaces in admin-down and down state on valid line cards only
     interface_pattern = re.compile("Gi\d{1,2}\/.*|Te.*|Hu.*|Fo.*")
@@ -24,17 +44,3 @@ def interface_list_creation_9k(connection, platform_list):
     
     return final_interface_list
 
-def platform_list_creation_9k(connection, valid_line_card):
-    #taking 'show platform' output from asr9k and selecting valid line cards only
-    lc_type_pattern = re.compile("(A9.+?-[^ \t\r\n\f].*GE)|(A9.+?-MOD.*-)")
-    platform_list = []
-
-    platform_output = connection.send_command("show platform")
-    platform_data = platform_output.split("\n")
-    for line_card in platform_data:
-        lc_type = lc_type_pattern.search(line_card)
-        if lc_type:
-            if lc_type.group() in valid_line_card:
-               platform_list.append(line_card.strip().split())
-
-    return platform_list
