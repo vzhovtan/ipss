@@ -19,7 +19,7 @@ def platform_list_creation_9k(connection, valid_line_card, reg_pattern):
                         platform_list.append(platform_list_entry)
 
     return platform_list
-
+    
 def interface_list_creation_9k(connection, platform_list):
     #taking 'show interface brief' and selecting interfaces in admin-down and down state on valid line cards only
     interface_pattern = re.compile("Gi\d{1,2}\/.*|Te.*|Hu.*|Fo.*")
