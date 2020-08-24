@@ -4,32 +4,32 @@ from bottle import *
 from netmiko import ConnectHandler
 import demo_get_9k
 
-static_file_name = "demo_seed_9k.yml"
+line_card_file = "demo_seed_9k.yml"
+config_file = "demo_config.yml"
 
 def get_vaild_card(file_name):
     #taking the data from external YML file and creating list of valid line cards
     valid_line_card = []
     with open(file_name, 'r') as file:
-        seed_data = yaml.load(file, Loader=yaml.FullLoader)
-        for key in seed_data:
-            if "pattern" not in key:
-                valid_line_card.append(key)
+        card_data = yaml.load(file, Loader=yaml.FullLoader)
+        for key in card_data:
+            valid_line_card.append(key)
     
     return valid_line_card
-
+    
 def get_lc_pattern(file_name):
     #taking the regular expression from external YML file
     reg_pattern = ""
     with open(file_name, 'r') as file:
-        seed_data = yaml.load(file, Loader=yaml.FullLoader)
-        for key in seed_data:
-            if "pattern" in key:
-                reg_pattern = seed_data[key][0]
+        config_data = yaml.load(file, Loader=yaml.FullLoader)
+        for key in config_data:
+            if "lc_pattern" in key:
+                reg_pattern = config_data[key][0]
     
     return reg_pattern
 
-valid_card_list = get_vaild_card(static_file_name)
-reg_pattern = get_lc_pattern(static_file_name)
+valid_card_list = get_vaild_card(line_card_file)
+reg_pattern = get_lc_pattern(config_file)
 
 @get('/')    # http://localhost:<port>
 def welcome():
