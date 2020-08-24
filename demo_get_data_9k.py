@@ -5,10 +5,10 @@ from netmiko import ConnectHandler
 import json
 import demo_get_9k
 
-HOST = '172.18.87.36'
+HOST = 'ipv4'
 PORT_SSH = 22
-USER = 'vzhovtan'
-PASS = 'RFFxlopina19**'
+USER = 'user'
+PASS = 'pass**'
 PLATFORM = 'cisco_xr'
 
 line_card_file = "demo_seed_9k.yml"
