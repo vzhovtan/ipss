@@ -1,0 +1,164 @@
+Node              Type                       State             Config state
+--------------------------------------------------------------------------------
+0/RP0/CPU0        A99-RP3-TR(Standby)        IOS XR RUN        NSHUT
+0/RP1/CPU0        A99-RP3-TR(Active)         IOS XR RUN        NSHUT
+0/FT0             ASR-9912-FAN               OPERATIONAL       NSHUT
+0/FT1             ASR-9912-FAN               OPERATIONAL       NSHUT
+0/5/CPU0          A99-32X100GE-TR            IOS XR RUN        NSHUT
+0/6/CPU0          A9K-MOD400-TR              IOS XR RUN        NSHUT
+0/6/0             A9K-MPA-20X1GE             OK
+0/6/1             A9K-MPA-20X10GE            OK
+0/8/CPU0          A9K-16X100GE-TR            IOS XR RUN        NSHUT
+0/FC1             A99-SFC3                   OPERATIONAL       NSHUT
+0/FC2             A99-SFC3                   OPERATIONAL       NSHUT
+0/FC3             A99-SFC3                   OPERATIONAL       NSHUT
+0/FC5             A99-SFC3                   OPERATIONAL       NSHUT
+0/FC6             A99-SFC3                   OPERATIONAL       NSHUT
+0/PT0             A9K-AC-PEM-V2              OPERATIONAL       NSHUT
+RP/0/RP1/CPU0:ASR-9912-A#sh contr np ports all loc 0/8/cpu0
+
+                Node: 0/8/CPU0:
+----------------------------------------------------------------
+
+NP Bridge Fia                       Ports
+-- ------ --- ---------------------------------------------------
+0  --     0   HundredGigE0/8/0/0 - HundredGigE0/8/0/3
+1  --     1   HundredGigE0/8/0/4 - HundredGigE0/8/0/7
+2  --     2   HundredGigE0/8/0/8 - HundredGigE0/8/0/9, TenGigE0/8/0/10/0 - TenGigE0/8/0/10/3, HundredGigE0/8/0/11
+3  --     3   HundredGigE0/8/0/12 - HundredGigE0/8/0/15
+RP/0/RP1/CPU0:ASR-9912-A#sh contr np ports all loc 0/6/cpu0
+
+                Node: 0/6/CPU0:
+----------------------------------------------------------------
+
+NP Bridge Fia                       Ports
+-- ------ --- ---------------------------------------------------
+0  --     0   GigabitEthernet0/6/0/0 - GigabitEthernet0/6/0/19
+1  --     1   TenGigE0/6/1/0 - TenGigE0/6/1/19
+RP/0/RP1/CPU0:ASR-9912-A#sh contr np ports all loc 0/5/cpu0
+
+                Node: 0/5/CPU0:
+----------------------------------------------------------------
+
+NP Bridge Fia                       Ports
+-- ------ --- ---------------------------------------------------
+0  --     0   HundredGigE0/5/0/0 - HundredGigE0/5/0/2, TenGigE0/5/0/3/0 - TenGigE0/5/0/3/3
+1  --     1   HundredGigE0/5/0/4 - HundredGigE0/5/0/7
+2  --     2   HundredGigE0/5/0/8, TenGigE0/5/0/9/0 - TenGigE0/5/0/9/3, TenGigE0/5/0/10/0 - TenGigE0/5/0/10/3, HundredGigE0/5/0/11
+3  --     3   HundredGigE0/5/0/12 - HundredGigE0/5/0/15
+4  --     4   HundredGigE0/5/0/16 - HundredGigE0/5/0/19
+5  --     5   HundredGigE0/5/0/20 - HundredGigE0/5/0/23
+6  --     6   HundredGigE0/5/0/24 - HundredGigE0/5/0/27
+7  --     7   HundredGigE0/5/0/28 - HundredGigE0/5/0/31
+
+
+
+
+
+Node            Type                      State            Config State
+-----------------------------------------------------------------------------
+0/RSP0/CPU0     A99-RSP-TR(Active)        IOS XR RUN       PWR,NSHUT,MON
+0/RSP1/CPU0     A99-RSP-TR(Standby)       IOS XR RUN       PWR,NSHUT,MON
+0/0/CPU0        A9K-36x10GE-SE            IOS XR RUN       PWR,NSHUT,MON
+0/2/CPU0        A9K-MOD200-TR             IOS XR RUN       PWR,NSHUT,MON
+0/2/0           A9K-MPA-20X10GE           OK               PWR,NSHUT,MON
+0/4/CPU0        A9K-24X10GE-1G-TR         IOS XR RUN       PWR,NSHUT,MON
+0/7/CPU0        A9K-24X10GE-1G-SE         IOS XR RUN       PWR,NSHUT,MON
+RP/0/RSP0/CPU0:ASR-9910-A#sh contr np ports all loc 0/4/cpu0
+
+                Node: 0/4/CPU0:
+----------------------------------------------------------------
+
+NP Bridge Fia                       Ports
+-- ------ --- ---------------------------------------------------
+0  --     0   TenGigE0/4/0/0 - TenGigE0/4/0/7, GigabitEthernet0/4/0/8 - GigabitEthernet0/4/0/11, TenGigE0/4/0/12 - TenGigE0/4/0/23
+RP/0/RSP0/CPU0:ASR-9910-A#sh contr np ports all loc 0/7/cpu0
+
+                Node: 0/7/CPU0:
+----------------------------------------------------------------
+
+NP Bridge Fia                       Ports
+-- ------ --- ---------------------------------------------------
+0  --     0   TenGigE0/7/0/0 - TenGigE0/7/0/11, GigabitEthernet0/7/0/12 - GigabitEthernet0/7/0/23
+RP/0/RSP0/CPU0:ASR-9910-A#sh contr np ports all loc 0/2/cpu0
+
+                Node: 0/2/CPU0:
+----------------------------------------------------------------
+
+NP Bridge Fia                       Ports
+-- ------ --- ---------------------------------------------------
+0  --     0   TenGigE0/2/0/0 - TenGigE0/2/0/19
+
+Node            Type                      State            Config State
+-----------------------------------------------------------------------------
+0/RP0/CPU0      A99-RP2-SE(Active)        IOS XR RUN       PWR,NSHUT,MON
+0/RP1/CPU0      A99-RP2-SE(Standby)       IOS XR RUN       PWR,NSHUT,MON
+0/0/CPU0        A9K-24X10GE-1G-TR         IOS XR RUN       PWR,NSHUT,MON
+0/1/CPU0        A9K-48X10GE-1G-SE         IOS XR RUN       PWR,NSHUT,MON
+0/2/CPU0        A99-8X100GE-TR            IOS XR RUN       PWR,NSHUT,MON
+0/4/CPU0        A99-8X100GE-SE            IOS XR RUN       PWR,NSHUT,MON
+0/9/CPU0        A9K-VSM-500               IOS XR RUN       PWR,NSHUT,MON
+RP/0/RP0/CPU0:ASR9912-B#sh contr np ports all loc 0/1/cpu0
+
+                Node: 0/1/CPU0:
+----------------------------------------------------------------
+
+NP Bridge Fia                       Ports
+-- ------ --- ---------------------------------------------------
+0  --     0   TenGigE0/1/0/0 - TenGigE0/1/0/23
+1  --     1   TenGigE0/1/0/24 - TenGigE0/1/0/47
+RP/0/RP0/CPU0:ASR9912-B#
+RP/0/RP0/CPU0:ASR9912-B#sh contr np ports all loc 0/0/cpu0
+
+                Node: 0/0/CPU0:
+----------------------------------------------------------------
+
+NP Bridge Fia                       Ports
+-- ------ --- ---------------------------------------------------
+0  --     0   TenGigE0/0/0/0 - TenGigE0/0/0/23
+RP/0/RP0/CPU0:ASR9912-B#sh contr np ports all loc 0/2/cpu0
+
+                Node: 0/2/CPU0:
+----------------------------------------------------------------
+
+NP Bridge Fia                       Ports
+-- ------ --- ---------------------------------------------------
+0  --     0   HundredGigE0/2/0/0 - HundredGigE0/2/0/1
+1  --     1   HundredGigE0/2/0/2 - HundredGigE0/2/0/3
+2  --     2   HundredGigE0/2/0/4 - HundredGigE0/2/0/5
+3  --     3   HundredGigE0/2/0/6 - HundredGigE0/2/0/7
+
+
+RP/0/RP0/CPU0:ASR9922-B#sh platform
+Node              Type                       State             Config state
+--------------------------------------------------------------------------------
+0/RP0/CPU0        A99-RP2-TR(Active)         IOS XR RUN        NSHUT
+0/FT0             ASR-9922-FAN-V2            OPERATIONAL       NSHUT
+0/FT1             ASR-9922-FAN-V2            OPERATIONAL       NSHUT
+0/FT2             ASR-9922-FAN-V2            OPERATIONAL       NSHUT
+0/FT3             ASR-9922-FAN-V2            OPERATIONAL       NSHUT
+0/0/CPU0          A9K-MOD400-TR              IOS XR RUN        NSHUT
+0/0/0             A9K-MPA-32X1GE             OK
+0/3/CPU0          A9K-4X100GE-TR             IOS XR RUN        NSHUT
+0/5/CPU0          A9K-48X10GE-1G-TR          IOS XR RUN        NSHUT
+0/9/CPU0          A99-12X100GE               IOS XR RUN        NSHUT
+0/FC0             A99-SFC2                   OPERATIONAL       NSHUT
+0/FC1             A99-SFC2                   OPERATIONAL       NSHUT
+0/FC2             A99-SFC2                   OPERATIONAL       NSHUT
+0/FC3             A99-SFC2                   OPERATIONAL       NSHUT
+0/FC4             A99-SFC2                   OPERATIONAL       NSHUT
+0/PT0             A9K-AC-PEM-V3              OPERATIONAL       NSHUT
+0/PT1             A9K-AC-PEM-V3              OPERATIONAL       NSHUT
+RP/0/RP0/CPU0:ASR9922-B#sh contr np ports all loc 0/9/cpu0
+
+                Node: 0/9/CPU0:
+----------------------------------------------------------------
+
+NP Bridge Fia                       Ports
+-- ------ --- ---------------------------------------------------
+0  --     0   HundredGigE0/9/0/0 - HundredGigE0/9/0/1
+1  --     1   HundredGigE0/9/0/2 - HundredGigE0/9/0/3
+2  --     2   HundredGigE0/9/0/4 - HundredGigE0/9/0/5
+3  --     3   HundredGigE0/9/0/6, TenGigE0/9/0/7/0 - TenGigE0/9/0/7/3
+4  --     4   HundredGigE0/9/0/8 - HundredGigE0/9/0/9
+5  --     5   HundredGigE0/9/0/10 - HundredGigE0/9/0/11
